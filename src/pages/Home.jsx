@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const { ConteudoPrincipal, DefaultTitle, Input, Icon, ContainerResponse, ImgFilme, ContainerMovieInfo, ContainerTituloEAno,
-    TituloFilme, AnoFilme, ResumoFilme, ContainerAboutMovie, ContainerLanguage, Language, Link } = HomeStyle
+    TituloFilme, AnoFilme, ResumoFilme, ContainerAboutMovie, ContainerLanguage, Language, Link, Texto } = HomeStyle
 
 function Home() {
     const apiKey = '3b60eddacb7025e1b48c11803ffc00a6';
@@ -45,7 +45,7 @@ function Home() {
 
                 {data.results && data.results.map(movie => (
                     <Link to={`/movie/${movie.id}`}>
-                        <ContainerResponse>
+                        <ContainerResponse key={movie.id}>
                             <ImgFilme key={movie.id} src={`${imageUrlBase}/${movie.poster_path}`} />
                             <ContainerMovieInfo>
                                 <ContainerTituloEAno>
@@ -53,6 +53,7 @@ function Home() {
                                     <AnoFilme>{takeYear(movie.release_date)}</AnoFilme>
                                 </ContainerTituloEAno>
                                 <ContainerAboutMovie>
+                                    <Texto>Sinopse:</Texto>
                                     <ResumoFilme>{movie.overview}</ResumoFilme>
                                     <ContainerLanguage>
                                         <Language>{movie.original_language}</Language>

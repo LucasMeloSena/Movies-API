@@ -20,7 +20,7 @@ const HomeStyle = {
     font-family: Raleway, 'sans-serif';
     font-weight: 700;
     color: #fff;
-    margin-top: 5vh;
+    margin-top: 4vh;
     `,
 
     Input: styled.input `
@@ -48,7 +48,7 @@ const HomeStyle = {
 
     ContainerResponse : styled.div `
         width: 50vw;
-        height: 300px;
+        height: 380px;
         background-color: #323d52;
         border-radius: 5px;
         box-shadow: 0 0 8px rgba(255, 255, 255, 1);
@@ -58,8 +58,8 @@ const HomeStyle = {
     `,
 
     ImgFilme : styled.img `
-    height: 300px;
-    width: 180px;
+    height: 380px;
+    width: 200px;
     border-radius: 5px;
     `,
 
@@ -96,6 +96,16 @@ const HomeStyle = {
     margin-right: 20px;
     margin-left: auto;
     color: #1b2029;
+    `,
+
+    Texto: styled.h4 `
+    color: #fff;
+    font-family: Poppins, 'sans-serif';
+    font-weight: 500;
+    align-self: flex-start;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 20px; 
     `,
 
     ResumoFilme : styled.h6 `

@@ -1,5 +1,6 @@
 body {
-    font-family: 'Poppins', sans-serif !important;
+    font-family: Poppins, 'sans-serif' !important;
+    color: #fff !important;
     margin: 0;
     overflow-x: hidden !important;
     background-color: #1b2029;

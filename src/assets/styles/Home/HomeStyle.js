@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
 
 const HomeStyle = {
@@ -29,8 +30,17 @@ const HomeStyle = {
     font-family: Poppins, 'sans-serif';
     font-size: 14px;
     height: 25px;
+    width: 350px;
     &:focus {
         outline: none;
+    }
+    `,
+
+    Icon: styled(FontAwesomeIcon) `
+    color: #fff;
+    margin-left: 10px;
+    &:hover {
+        cursor: pointer;
     }
     `
 }

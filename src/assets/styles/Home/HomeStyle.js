@@ -47,14 +47,14 @@ const HomeStyle = {
     `,
 
     ContainerResponse : styled.div `
-        width: 50vw;
-        height: 380px;
-        background-color: #323d52;
-        border-radius: 5px;
-        box-shadow: 0 0 8px rgba(255, 255, 255, 1);
-        margin-bottom: 7vh;
-        display: flex;
-        flex-direction: row;
+    width: 50vw;
+    height: 380px;
+    background-color: #323d52;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 1);
+    margin-bottom: 7vh;
+    display: flex;
+    flex-direction: row;
     `,
 
     ImgFilme : styled.img `

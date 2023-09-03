@@ -23,11 +23,9 @@ function InfoPage() {
     let [movie, setMovie] = useState({});
     let [keyVideo, setKeyVideo] = useState([]);
 
-    //const keys = keyVideo.results && keyVideo.results.map(chave => chave.key);
-    const keys = keyVideo.results && keyVideo.results.filter(nome => nome.name == 'Official Trailer')
-    const chave = keys && keys.map(chave => chave.key)
-    console.log(chave)
-    const urlTrailerYoutube = keys && keys.length > 0 ? `https://www.youtube.com/watch?v=${chave}` : '';
+    const keys = String(keyVideo.results && keyVideo.results.filter(nome => nome.name == 'Official Trailer').map(chave => chave.key))
+    const urlTrailerYoutube = keys && keys.length > 0 ? `https://www.youtube.com/watch?v=${keys}` : '';
+    console.log(keys)
 
     useEffect(() => {
         axios.get(`${baseUrl}/${id}?language=${language}`, {
@@ -53,7 +51,7 @@ function InfoPage() {
             .catch(error => {
                 console.error(error);
             });
-            
+
         window.scrollTo(0, 0);
     }, [id]);
 
@@ -129,13 +127,18 @@ function InfoPage() {
                 </ContainerCaracteristicas>
 
                 <ContainerTrailer>
-                    <ReactPlayer
-                        url={urlTrailerYoutube}
-                        controls={true}
-                        width='50vw'
-                        height='400px'
-                    />
+                    {keys === "" || keys === null || keys === undefined ? (
+                        <TextoInfo>Ocorreu um erro ao carregar o trailer 😭</TextoInfo>
+                    ) : (
+                        <ReactPlayer
+                            url={urlTrailerYoutube}
+                            controls={true}
+                            width='100%'
+                            height='100%'
+                        />
+                    )}
                 </ContainerTrailer>
+
 
             </ConteudoPrincipal>
         </>

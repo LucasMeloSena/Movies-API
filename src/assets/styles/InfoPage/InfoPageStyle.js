@@ -162,6 +162,9 @@ const InfoPageStyle = {
     height: 400px;
     width: 50vw;
     box-shadow: rgba(95, 126, 183, 0.35) 0px 5px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     `
 }
 

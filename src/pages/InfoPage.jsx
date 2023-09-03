@@ -124,6 +124,10 @@ function InfoPage() {
                         titulo={"Receita"}
                         resposta={`${NumeroDolar(parseInt(movie.revenue))}`}
                     />
+                    <Caracteristicas
+                        titulo={"Avaliações"}
+                        resposta={`${(movie.vote_average*10).toFixed(0)}%`}
+                    />
                 </ContainerCaracteristicas>
 
                 <ContainerTrailer>

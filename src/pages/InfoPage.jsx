@@ -1,31 +1,30 @@
-import InfoPageStyle from "../../assets/styles/InfoPage/InfoPageStyle.js"
+import InfoPageStyle from "../assets/styles/InfoPage/InfoPageStyle.js";
 import { useParams } from "react-router-dom";
-import HomeStyle from "../../assets/styles/Home/HomeStyle.js"
+import HomeStyle from "../assets/styles/Home/HomeStyle.js";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Caracteristicas from "../Props/Caracteristicas.jsx";
+import Caracteristicas from "../components/Props/Caracteristicas.jsx";
 
 const { ConteudoPrincipal, BackButton, Icon, ButtonText, Link, ContainerResponse, ContainerMovieInfo, ContainerTituloEAno,
     TituloFilme, AnoFilme, Texto, ResumoFilme, ContainerAboutMovie, ImgFilme, ContainerGenres, Genres, DefaultContainer,
-    TextoInfo, ContainerCaracteristicas, ContainerTrailer } = InfoPageStyle
+    TextoInfo, ContainerCaracteristicas, ContainerTrailer } = InfoPageStyle;
 
-const { DefaultTitle } = HomeStyle
+const { DefaultTitle } = HomeStyle;
 
 function InfoPage() {
-
     const { id } = useParams();
 
     const apiKey = '3b60eddacb7025e1b48c11803ffc00a6';
     const baseUrl = 'https://api.themoviedb.org/3/movie';
     const imageUrlBase = 'https://image.tmdb.org/t/p/w500';
-    const language = 'pt-BR'
-    let [movie, setMovie] = useState({})
-    let [keyVideo, setKeyVideo] = useState([])
+    const language = 'pt-BR';
+    let [movie, setMovie] = useState({});
+    let [keyVideo, setKeyVideo] = useState([]);
 
-    const keys = keyVideo.results && keyVideo.results.map(chave => chave.key)
+    const keys = keyVideo.results && keyVideo.results.map(chave => chave.key);
     const urlTrailerYoutube = keys && keys.length > 0 ? `https://www.youtube.com/watch?v=${keys[0]}` : '';
-    console.log(urlTrailerYoutube)
+    console.log(urlTrailerYoutube);
 
     useEffect(() => {
         axios.get(`${baseUrl}/${id}?language=${language}`, {
@@ -34,7 +33,7 @@ function InfoPage() {
             },
         })
             .then(response => {
-                setMovie(response.data)
+                setMovie(response.data);
             })
             .catch(error => {
                 console.error(error);
@@ -46,12 +45,13 @@ function InfoPage() {
             },
         })
             .then(response => {
-                setKeyVideo(response.data)
+                setKeyVideo(response.data);
             })
             .catch(error => {
                 console.error(error);
             });
-    }, [])
+        window.scrollTo(0, 0);
+    }, [id]);
 
     function takeYear(date) {
         return date ? date.substring(0, 4) : '';
@@ -63,7 +63,7 @@ function InfoPage() {
 
     function NumeroDolar(valor) {
         const numeroFormatado = formatarNumeroDolar(valor);
-        return numeroFormatado
+        return numeroFormatado;
     }
 
     return (
@@ -114,27 +114,27 @@ function InfoPage() {
                         titulo={"Duração"}
                         resposta={`${movie.runtime} min`}
                     />
-                    {/* <Caracteristicas
+                    <Caracteristicas
                         titulo={"Orçamento"}
-                        resposta={`${NumeroDolar((movie.budget))}`}
+                        resposta={`${NumeroDolar((parseInt(movie.budget)))}`}
                     />
                     <Caracteristicas
                         titulo={"Receita"}
-                        resposta={`${NumeroDolar(movie.revenue)}`}
-                    /> */}
+                        resposta={`${NumeroDolar(parseInt(movie.revenue))}`}
+                    />
                 </ContainerCaracteristicas>
-                
-                <ContainerTrailer 
-                src={urlTrailerYoutube}
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen
+
+                <ContainerTrailer
+                    src={urlTrailerYoutube}
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
                 />
 
             </ConteudoPrincipal>
         </>
-    )
+    );
 }
 
-export default InfoPage
+export default InfoPage;

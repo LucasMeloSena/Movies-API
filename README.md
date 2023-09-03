@@ -11,8 +11,8 @@ Este projeto foi desenvolvido com objetivo de colocar em prática meus conhecime
 
 ## Usage
 
-- Você pode acessar o projeto a partir deste link: <a href="https://movies-api-react.vercel.app/" target="_blank"> Movies API </a>
+- Você pode acessar o projeto a partir deste link: <a href="https://movies-api-react.vercel.app/"> Movies API </a>
 
 ## API Integration
 
-Este projeto usa a <a href="https://www.themoviedb.org/?language=pt-BR" target="_blank">The Movie Database</a> API para consumir os dados
+Este projeto usa a <a href="https://www.themoviedb.org/?language=pt-BR">The Movie Database</a> API para consumir os dados

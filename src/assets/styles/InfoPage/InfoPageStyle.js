@@ -5,7 +5,7 @@ import styled from "styled-components";
 const InfoPageStyle = {
     ConteudoPrincipal : styled.div `
     width: 100vw;
-    height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -156,9 +156,12 @@ const InfoPageStyle = {
     flex-wrap: wrap;
     `,
 
-    ContainerTrailer : styled.iframe `
+    ContainerTrailer : styled.div `
+    margin-top: 5vh;
     margin-bottom: 50px;
-    margin-top: 50px;
+    height: 400px;
+    width: 50vw;
+    box-shadow: rgba(95, 126, 183, 0.35) 0px 5px 15px;
     `
 }
 

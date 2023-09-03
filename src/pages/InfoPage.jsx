@@ -5,6 +5,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Caracteristicas from "../components/Props/Caracteristicas.jsx";
+import ReactPlayer from "react-player";
 
 const { ConteudoPrincipal, BackButton, Icon, ButtonText, Link, ContainerResponse, ContainerMovieInfo, ContainerTituloEAno,
     TituloFilme, AnoFilme, Texto, ResumoFilme, ContainerAboutMovie, ImgFilme, ContainerGenres, Genres, DefaultContainer,
@@ -22,9 +23,11 @@ function InfoPage() {
     let [movie, setMovie] = useState({});
     let [keyVideo, setKeyVideo] = useState([]);
 
-    const keys = keyVideo.results && keyVideo.results.map(chave => chave.key);
-    const urlTrailerYoutube = keys && keys.length > 0 ? `https://www.youtube.com/watch?v=${keys[0]}` : '';
-    console.log(urlTrailerYoutube);
+    //const keys = keyVideo.results && keyVideo.results.map(chave => chave.key);
+    const keys = keyVideo.results && keyVideo.results.filter(nome => nome.name == 'Official Trailer')
+    const chave = keys && keys.map(chave => chave.key)
+    console.log(chave)
+    const urlTrailerYoutube = keys && keys.length > 0 ? `https://www.youtube.com/watch?v=${chave}` : '';
 
     useEffect(() => {
         axios.get(`${baseUrl}/${id}?language=${language}`, {
@@ -50,6 +53,7 @@ function InfoPage() {
             .catch(error => {
                 console.error(error);
             });
+            
         window.scrollTo(0, 0);
     }, [id]);
 
@@ -124,13 +128,14 @@ function InfoPage() {
                     />
                 </ContainerCaracteristicas>
 
-                <ContainerTrailer
-                    src={urlTrailerYoutube}
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                />
+                <ContainerTrailer>
+                    <ReactPlayer
+                        url={urlTrailerYoutube}
+                        controls={true}
+                        width='50vw'
+                        height='400px'
+                    />
+                </ContainerTrailer>
 
             </ConteudoPrincipal>
         </>

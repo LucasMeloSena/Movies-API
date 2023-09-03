@@ -11,6 +11,12 @@ const FilmesPopularesStyle = {
     margin-bottom: 7vh;
     display: flex;
     flex-direction: row;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+    }
     `,
 
     ImgFilme : styled.img `

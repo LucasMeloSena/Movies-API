@@ -1,4 +1,4 @@
-# Movie API Consumer
+# Movies API
 Bem-vindo a Movies API project!
 Este projeto foi desenvolvido com objetivo de colocar em prática meus conhecimentos obtidos em Node.js, React.js, consumo de APIs, Hooks, Styled-Components, Express, Axios, Vite e React-Router-Dom
 

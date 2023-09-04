@@ -24,12 +24,6 @@ const HeaderStyle = {
     font-size: 16px;
     font-family: Poppins, 'sans-serif';
     font-weight: 400;
-    ${(props) => 
-        props.isActive && `
-        background-color: #5F7EB7;
-        color: #fff;
-        `
-    }
     &:hover {
         cursor: pointer;
         transition: all 0.5s;

@@ -2,7 +2,6 @@ import HeaderStyle from "../../assets/styles/Header/HeaderStyle"
 import Logo from '../../assets/img/logo.png'
 
 const { HeaderContainer, BtnPage, ImgLogo, Link } = HeaderStyle
-const isButtonMainPageActive = true
 
 function Header() {
     return (

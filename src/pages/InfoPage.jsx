@@ -52,7 +52,7 @@ function InfoPage() {
             });
 
         window.scrollTo(0, 0);
-    }, [id]);
+    }, []);
 
     function takeYear(date) {
         return date ? date.substring(0, 4) : '';
@@ -125,7 +125,7 @@ function InfoPage() {
                     />
                     <Caracteristicas
                         titulo={"Avaliações"}
-                        resposta={`${(movie.vote_average*10).toFixed(0)}%`}
+                        resposta={`${(movie.vote_average * 10).toFixed(0)}%`}
                     />
                 </ContainerCaracteristicas>
 

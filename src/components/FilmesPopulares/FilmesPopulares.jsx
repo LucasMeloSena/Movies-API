@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import FilmesPopularesStyle from "../../assets/styles/FilmesPopulares/FilmesPopularesStyle";
-const { ContainerResponse, ImgFilme, ContainerMovieInfo, ContainerTituloEAno,
-    TituloFilme, AnoFilme, ResumoFilme, ContainerAboutMovie, ContainerLanguage, Language, Link, Texto } = FilmesPopularesStyle
+import Filmes from "../Props/Filmes";
 
 function FilmesPopulares() {
     const apiKey = '3b60eddacb7025e1b48c11803ffc00a6';
@@ -26,32 +24,12 @@ function FilmesPopulares() {
             });
     }, [])
 
-    function takeYear(date) {
-        return date ? date.substring(0, 4) : '';
-    }
-
     return (
         <>
-            {data.results && data.results.map(movie => (
-                <Link to={`/movie/${movie.id}`}>
-                    <ContainerResponse key={movie.id}>
-                        <ImgFilme key={movie.id} src={`${imageUrlBase}/${movie.poster_path}`} />
-                        <ContainerMovieInfo>
-                            <ContainerTituloEAno>
-                                <TituloFilme>{movie.original_title}</TituloFilme>
-                                <AnoFilme>{takeYear(movie.release_date)}</AnoFilme>
-                            </ContainerTituloEAno>
-                            <ContainerAboutMovie>
-                                <Texto>Sinopse:</Texto>
-                                <ResumoFilme>{movie.overview}</ResumoFilme>
-                                <ContainerLanguage>
-                                    <Language>{movie.original_language}</Language>
-                                </ContainerLanguage>
-                            </ContainerAboutMovie>
-                        </ContainerMovieInfo>
-                    </ContainerResponse>
-                </Link>
-            ))}
+            <Filmes
+            paramApi={data}
+            urlBaseImg={imageUrlBase}
+            />
         </>
     )
 }

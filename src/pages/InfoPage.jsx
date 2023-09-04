@@ -25,7 +25,6 @@ function InfoPage() {
 
     const keys = String(keyVideo.results && keyVideo.results.filter(nome => nome.name == 'Official Trailer').map(chave => chave.key))
     const urlTrailerYoutube = keys && keys.length > 0 ? `https://www.youtube.com/watch?v=${keys}` : '';
-    console.log(keys)
 
     useEffect(() => {
         axios.get(`${baseUrl}/${id}?language=${language}`, {
@@ -142,8 +141,6 @@ function InfoPage() {
                         />
                     )}
                 </ContainerTrailer>
-
-
             </ConteudoPrincipal>
         </>
     );

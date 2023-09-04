@@ -3,8 +3,8 @@ import axios from "axios";
 import FilmesEmCartazStyle from "../../assets/styles/FilmesEmCartaz/FilmesEmCartazStyle";
 import InfoPageStyle from '../../assets/styles/InfoPage/InfoPageStyle'
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-const { ConteudoPrincipal, ContainerResponse, ImgFilme, ContainerMovieInfo, ContainerTituloEAno,
-    TituloFilme, AnoFilme, ResumoFilme, ContainerAboutMovie, ContainerLanguage, Language, Link, Texto, Link2 } = FilmesEmCartazStyle
+import Filmes from "../Props/Filmes";
+const { ConteudoPrincipal, Link } = FilmesEmCartazStyle
 
 const {BackButton, Icon, ButtonText} = InfoPageStyle
 
@@ -15,16 +15,7 @@ function FilmesEmCartaz() {
     const language = 'pt-BR'
     let [data, setData] = useState({})
 
-    function ScrollToTop() {
-        useEffect(() => {
-            
-        }, []);
-        return null;
-    }
-
     useEffect(() => {
-        window.scrollTo(0, 0);
-
         axios.get(`${baseUrl}?api_key=${apiKey}&language=${language}`, {
             params: {
                 api_key: apiKey,
@@ -39,40 +30,20 @@ function FilmesEmCartaz() {
             });
     }, [])
 
-    function takeYear(date) {
-        return date ? date.substring(0, 4) : '';
-    }
-
     return (
         <>
             <ConteudoPrincipal>
-                <Link2 to={'/'}>
+                <Link to={'/'}>
                     <BackButton>
                         <Icon icon={faArrowLeft}/>
                         <ButtonText>Voltar</ButtonText>
                     </BackButton>
-                </Link2>
+                </Link>
 
-                {data.results && data.results.map(movie => (
-                    <Link to={`/movie/${movie.id}`}>
-                        <ContainerResponse key={movie.id}>
-                            <ImgFilme key={movie.id} src={`${imageUrlBase}/${movie.poster_path}`} />
-                            <ContainerMovieInfo>
-                                <ContainerTituloEAno>
-                                    <TituloFilme>{movie.original_title}</TituloFilme>
-                                    <AnoFilme>{takeYear(movie.release_date)}</AnoFilme>
-                                </ContainerTituloEAno>
-                                <ContainerAboutMovie>
-                                    <Texto>Sinopse:</Texto>
-                                    <ResumoFilme>{movie.overview}</ResumoFilme>
-                                    <ContainerLanguage>
-                                        <Language>{movie.original_language}</Language>
-                                    </ContainerLanguage>
-                                </ContainerAboutMovie>
-                            </ContainerMovieInfo>
-                        </ContainerResponse>
-                    </Link>
-                ))}
+                <Filmes
+                urlBaseImg={imageUrlBase}
+                paramApi={data}
+                />
             </ConteudoPrincipal>
         </>
     )

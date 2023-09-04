@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from "styled-components"
+import { Link } from "react-router-dom"
 
-const FilmesPopularesStyle = {
+const FilmesStyle = {
     ContainerResponse : styled.div `
     width: 50vw;
     height: auto;
@@ -107,4 +107,36 @@ const FilmesPopularesStyle = {
     `
 }
 
-export default FilmesPopularesStyle
+function Filmes({paramApi, urlBaseImg}) {
+
+    function takeYear(date) {
+        return date ? date.substring(0, 4) : '';
+    }
+
+    return (
+        <>
+            {paramApi.results && paramApi.results.map(movie => (
+                <FilmesStyle.Link to={`/movie/${movie.id}`}>
+                    <FilmesStyle.ContainerResponse key={movie.id}>
+                        <FilmesStyle.ImgFilme key={movie.id} src={`${urlBaseImg}/${movie.poster_path}`} />
+                        <FilmesStyle.ContainerMovieInfo>
+                            <FilmesStyle.ContainerTituloEAno>
+                                <FilmesStyle.TituloFilme>{movie.original_title}</FilmesStyle.TituloFilme>
+                                <FilmesStyle.AnoFilme>{takeYear(movie.release_date)}</FilmesStyle.AnoFilme>
+                            </FilmesStyle.ContainerTituloEAno>
+                            <FilmesStyle.ContainerAboutMovie>
+                                <FilmesStyle.Texto>Sinopse:</FilmesStyle.Texto>
+                                <FilmesStyle.ResumoFilme>{movie.overview}</FilmesStyle.ResumoFilme>
+                                <FilmesStyle.ContainerLanguage>
+                                    <FilmesStyle.Language>{movie.original_language}</FilmesStyle.Language>
+                                </FilmesStyle.ContainerLanguage>
+                            </FilmesStyle.ContainerAboutMovie>
+                        </FilmesStyle.ContainerMovieInfo>
+                    </FilmesStyle.ContainerResponse>
+                </FilmesStyle.Link>
+            ))}
+        </>
+    )
+}
+
+export default Filmes

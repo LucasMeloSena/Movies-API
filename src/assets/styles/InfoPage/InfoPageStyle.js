@@ -11,29 +11,6 @@ const InfoPageStyle = {
     align-items: center;
     `,
 
-    BackButton: styled.div `
-    height: auto;
-    width: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    &:hover {
-        cursor: pointer;
-    }
-    `,
-
-    Icon: styled(FontAwesomeIcon) `
-    color: #fff;
-    margin-left: 20px;
-    `,
-
-    ButtonText: styled.h4 `
-    color: #fff;
-    font-size: 15px;
-    margin-left: 10px;
-    `,
-
     Link: styled(Link) `
     text-decoration: none;
     align-self: flex-start;

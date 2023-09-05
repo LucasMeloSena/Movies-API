@@ -1,11 +1,11 @@
 import InfoPageStyle from "../assets/styles/InfoPage/InfoPageStyle.js";
 import { useParams } from "react-router-dom";
 import HomeStyle from "../assets/styles/Home/HomeStyle.js";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Caracteristicas from "../components/Props/Caracteristicas.jsx";
 import ReactPlayer from "react-player";
+import BackButtonProp from '../components/Props/BackButton.jsx'
 
 const { ConteudoPrincipal, BackButton, Icon, ButtonText, Link, ContainerResponse, ContainerMovieInfo, ContainerTituloEAno,
     TituloFilme, AnoFilme, Texto, ResumoFilme, ContainerAboutMovie, ImgFilme, ContainerGenres, Genres, DefaultContainer,
@@ -71,10 +71,7 @@ function InfoPage() {
         <>
             <ConteudoPrincipal>
                 <Link to={'/'}>
-                    <BackButton>
-                        <Icon icon={faArrowLeft} />
-                        <ButtonText>Voltar</ButtonText>
-                    </BackButton>
+                    <BackButtonProp/>
                 </Link>
                 <DefaultTitle>Seja bem-vindo a página de detalhes!</DefaultTitle>
 

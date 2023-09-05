@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import FilmesEmCartazStyle from "../../assets/styles/FilmesEmCartaz/FilmesEmCartazStyle";
-import InfoPageStyle from '../../assets/styles/InfoPage/InfoPageStyle'
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Filmes from "../Props/Filmes";
+import BackButton from '../Props/BackButton.jsx'
 const { ConteudoPrincipal, Link } = FilmesEmCartazStyle
-
-const {BackButton, Icon, ButtonText} = InfoPageStyle
 
 function FilmesEmCartaz() {
     const apiKey = '3b60eddacb7025e1b48c11803ffc00a6';
@@ -34,10 +31,7 @@ function FilmesEmCartaz() {
         <>
             <ConteudoPrincipal>
                 <Link to={'/'}>
-                    <BackButton>
-                        <Icon icon={faArrowLeft}/>
-                        <ButtonText>Voltar</ButtonText>
-                    </BackButton>
+                    <BackButton/>
                 </Link>
 
                 <Filmes

@@ -7,7 +7,7 @@ import Caracteristicas from "../components/Props/Caracteristicas.jsx";
 import ReactPlayer from "react-player";
 import BackButtonProp from '../components/Props/BackButton.jsx'
 
-const { ConteudoPrincipal, BackButton, Icon, ButtonText, Link, ContainerResponse, ContainerMovieInfo, ContainerTituloEAno,
+const { ConteudoPrincipal, Link, ContainerResponse, ContainerMovieInfo, ContainerTituloEAno,
     TituloFilme, AnoFilme, Texto, ResumoFilme, ContainerAboutMovie, ImgFilme, ContainerGenres, Genres, DefaultContainer,
     TextoInfo, ContainerCaracteristicas, ContainerTrailer } = InfoPageStyle;
 

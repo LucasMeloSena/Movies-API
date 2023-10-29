@@ -1,5 +1,5 @@
 # 🎬 Movies API
-Welcome to the Movies API project! This project was developed with the following technologies, Node.js, React.js, API consumption, Hooks, Styled-Components, Axios, Vite and React-Router-Dom.
+Welcome to the Movies API project! This project was developed with the following technologies, React.js, API consumption, Hooks, Styled-Components, Axios, Vite and React-Router-Dom.
 
 ## 💡 Features
 

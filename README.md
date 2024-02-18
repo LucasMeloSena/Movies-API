@@ -16,8 +16,7 @@ Welcome to the Movies API project!
 - View details of each film
 
 ## 💻 Usage
-
-- You can access the project from this link:  <a href="https://movies-api-react.vercel.app/"> Movies API </a>
+You can access the project from this link:  <a href="https://movies-api-react.vercel.app/"> Movies API </a>
 
 ## 🪢 API Integration
 This project uses <a href="https://www.themoviedb.org/?language=pt-BR">The Movie Database</a>  API to consume the data.
